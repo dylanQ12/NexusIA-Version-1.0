@@ -37,12 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
     'principal',
     'dashboard',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -78,7 +80,8 @@ WSGI_APPLICATION = 'nexus.wsgi.application'
 
 
 # Conexión a MySQL 
-'''DATABASES = {
+
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'nexus',
@@ -90,18 +93,8 @@ WSGI_APPLICATION = 'nexus.wsgi.application'
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         },       
     }
-}'''
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nexusIA',
-        'USER': 'usuario',
-        'PASSWORD': 'contraseña',
-        'HOST': 'host.provisto.por.railway',
-        'PORT': 'puerto',
-    }
 }
+
 
 
 # Password validation
@@ -144,6 +137,8 @@ STATICFILES_DIRS = [BASE_DIR / 'static',]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 ALLOWED_HOSTS = ['*']
 

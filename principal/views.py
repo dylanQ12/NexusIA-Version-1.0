@@ -40,7 +40,7 @@ def home(request):
             )
             contact.save()
             messages.success(request, '¡Mensaje enviado correctamente!')
-            return redirect('http://127.0.0.1:8000/' + '#contact')
+            return redirect('/#contact')
     
     return render(request, "sections/home.html", context)
 

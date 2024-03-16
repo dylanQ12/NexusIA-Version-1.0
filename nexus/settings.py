@@ -84,11 +84,11 @@ WSGI_APPLICATION = 'nexus.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'nexus',
+        'NAME': 'railway',
         'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',  
-        'PORT': '3306',
+        'PASSWORD': 'lEPipfQnfChKqvwdgmGmZVvxbQrIEtSX',
+        'HOST': 'roundhouse.proxy.rlwy.net',  
+        'PORT': '50485',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         },       

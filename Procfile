@@ -1,1 +1,1 @@
-web: pip install collectstatic && gunicorn nexus.wsgi
+web: python manage.py migrate && gunicorn nexus.wsgi
